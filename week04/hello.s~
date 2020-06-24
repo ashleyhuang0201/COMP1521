@@ -1,0 +1,25 @@
+	.data
+msg1: .asciiz "n = "
+
+
+
+## main() function
+	.text
+	.globl	main
+main:
+
+   li   $t1, 0
+   li   $t2, 1
+   li   $t3, 10
+loop:
+   bgt  $t2, $t3, end_loop
+   mul  $t1, $t1, $t2
+   addi $t2, $t2, 1
+   j    loop
+end_loop:
+   sw   $t1, result
+   
+   la $t1, msg1
+   syscall
+   
+   	jr	$ra
